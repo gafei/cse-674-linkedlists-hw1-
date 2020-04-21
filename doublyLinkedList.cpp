@@ -35,13 +35,6 @@ void doublyList::insertFirst(int data){
 		*headNode = newNode; 
 
 }
-doublyNode doublyList::deleteFirst(){
-
-
-}
-void doublyList::insertLast(int data){
-
-}
 
 void doublyList::removeAllNodes(){
 
@@ -219,9 +212,6 @@ int doublyList::countList(){
     return count;
 
 }
-void doublyList::selectionSort(){
-
-}
 doublyNode doublyList::getNodeData(int nodeLocation){
         
         doublyNode *node = head;
@@ -345,41 +335,6 @@ doublyNode *doublyList::shuffle(){
                 break;
             }
             
-            
-            //secondList = secondList->previous;
-
-            //firstList = secondList->
-
-            //fix previous pointers
-
-            
-            // traverse to end of dummy.next with .next
-            // split dummy.next into firstList->previous
-            // split dummy.next into secondList->previous
-
-            // hmm, don't split
-            // traverse to the end of dummy.next
-            // at the last node, start populating it into .previous
-
-
-        //while((dummy.next)!=NULL){
-
-          //  reverseList(); //this goes to the end of dummy.
-           // dummy.previous = head;
-            // from the end, assign dummy->next as the previous?
-            //dummy.previous = tail;
-
-            
-
-        //}
-
-
-             
-            
-
-
-
-
         }
 
 
