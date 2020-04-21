@@ -182,14 +182,6 @@ void doublyList::swapNodes(int a, int b){
             (*adjB)->previous = (*currentNodeb); //72.prev should be 76?
 
         }
-        
-
-        
-        
-
-
-        
-    //} 
 
 }
 int doublyList::countList(){
@@ -253,11 +245,7 @@ void doublyList::selectionSortFours(int start, int end){
             a = getNodeData(i).data; // index of i, getnodedata starts at index 1!
             b = getNodeData(min).data; // index of min
 
-            // somewhere in here it dies. Lets check for validity of a and b before swapping.
-            // if a and b are non-zero, swap.
-           // if(a && b ){
-                swapNodes(a, b); //swap node swaps data in nodes
-            //}
+            swapNodes(a, b); //swap node swaps data in nodes
 
            
            
@@ -304,7 +292,6 @@ doublyNode *doublyList::shuffle(){
         if(firstList==NULL){
 
             firsthalfTail->next = secondList;
-            //secondList->previous = firstList; //added
             break;
 
         }
@@ -321,11 +308,10 @@ doublyNode *doublyList::shuffle(){
             firstList->previous = firsthalfTail; //set firsthalftail to be in firstList->previous
             firsthalfTail =firstList; //dummy is the firstlist
             firstList = firstList->next; //advance firstlist's next pointer
-            //firstList = firstList->previous; //
+            
 
             firsthalfTail->next = secondList; // set first number in secondList to firsthalftail->next
             firsthalfTail = secondList; // set number of secondlist to start of firsthalftail
-            // set the "non moving number's previous node to point to "
             secondList = secondList->next; //advance secondlist's next pointer
             //if((firstList->previous) && (firstList) !=NULL)
             if(firstList!=NULL){
