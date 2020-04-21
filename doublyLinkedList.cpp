@@ -11,6 +11,8 @@ doublyList::doublyList(){
 
 } 
 doublyList::~doublyList(){
+    
+    removeAllNodes();
 
 } 
 
