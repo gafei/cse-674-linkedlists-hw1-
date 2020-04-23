@@ -23,10 +23,6 @@ public:
     ~doublyList(); //destructor
 
     void insertFirst(int data);
-    doublyNode deleteFirst();
-    void insertLast(int data);
-
-
 
     void removeAllNodes();
     bool IsEmpty();
@@ -35,7 +31,6 @@ public:
     void swap(doublyNode *&a, doublyNode *&b );
     void swapNodes(int a, int b);
     int countList();
-    void selectionSort();
     doublyNode getNodeData(int nodeLocation);
     void selectionSortFours(int start, int end);
 
@@ -48,6 +43,6 @@ public:
 
 
 private:
-    doublyNode *head, *tail, *firstList, *secondList;; //access to head and tail in case we need them in this class
+    doublyNode *head, *tail, *firstList, *secondList;
 
 };

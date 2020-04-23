@@ -11,6 +11,8 @@ doublyList::doublyList(){
 
 } 
 doublyList::~doublyList(){
+    
+    removeAllNodes();
 
 } 
 
@@ -33,13 +35,6 @@ void doublyList::insertFirst(int data){
 		
 		newNode->next = *headNode; // the new node's next field will point to the old first
 		*headNode = newNode; 
-
-}
-doublyNode doublyList::deleteFirst(){
-
-
-}
-void doublyList::insertLast(int data){
 
 }
 
@@ -123,9 +118,6 @@ void doublyList::swapNodes(int a, int b){
     // start at the head
     while(*node!=NULL){
 
-        // as long as the *node is not empty..
-        // otherwise kick out of while loop
-
          //std::cout << "Data in node is: " << node->data << "\n";
          if((*node)->data == a ){
             
@@ -145,10 +137,6 @@ void doublyList::swapNodes(int a, int b){
 
     } 
     
-    // we need a found case and/or a not found case to continue onto to swap.
-
-    //if (a && b){ //true if both a and b are true, false otherwise (logical and)
-
         swap(*currentNodea, *currentNodeb); //swap actual data values
         //swap(((*currentNodea)->next), ((*currentNodeb)->next)); //swap next pointers.
         //swap(((*currentNodea)->previous), ((*currentNodeb)->previous));//swap previous pointers
@@ -160,41 +148,27 @@ void doublyList::swapNodes(int a, int b){
         if(((*currentNodea)->previous) && ((*currentNodeb)->previous)!=NULL){
             swap(((*currentNodea)->previous), ((*currentNodeb)->previous));//swap previous pointers
         }
-
-
-        
-
-        // nodes should be done swapping data/pointers now?
-        // fix the adjacent node's pointers?  
         // adjacent is the one to the right of the swapped node
         // fix only the prev pointer for now
         doublyNode **adjA =NULL;
         doublyNode **adjB=NULL;
 
-        adjA = &(*currentNodea)->next; //77? second number of the 
-        adjB = &(*currentNodeb)->next; //72?
+        adjA = &(*currentNodea)->next; 
+        adjB = &(*currentNodeb)->next; 
 
-        // actually, if adjA or adjB IS NULL, return.
+        // actually, if adjA or adjB IS NOT NULL, point back to the currentNode on previous adj
 
         if((*adjA)!=NULL){
             
-            (*adjA)->previous = (*currentNodea); //77.prev should be 71?
+            (*adjA)->previous = (*currentNodea); 
         }
         
         
         if((*adjB)!=NULL){
             
-            (*adjB)->previous = (*currentNodeb); //72.prev should be 76?
+            (*adjB)->previous = (*currentNodeb); 
 
         }
-        
-
-        
-        
-
-
-        
-    //} 
 
 }
 int doublyList::countList(){
@@ -217,9 +191,6 @@ int doublyList::countList(){
     }
 
     return count;
-
-}
-void doublyList::selectionSort(){
 
 }
 doublyNode doublyList::getNodeData(int nodeLocation){
@@ -261,11 +232,7 @@ void doublyList::selectionSortFours(int start, int end){
             a = getNodeData(i).data; // index of i, getnodedata starts at index 1!
             b = getNodeData(min).data; // index of min
 
-            // somewhere in here it dies. Lets check for validity of a and b before swapping.
-            // if a and b are non-zero, swap.
-           // if(a && b ){
-                swapNodes(a, b); //swap node swaps data in nodes
-            //}
+            swapNodes(a, b); //swap node swaps data in nodes
 
            
            
@@ -312,7 +279,6 @@ doublyNode *doublyList::shuffle(){
         if(firstList==NULL){
 
             firsthalfTail->next = secondList;
-            //secondList->previous = firstList; //added
             break;
 
         }
@@ -329,11 +295,10 @@ doublyNode *doublyList::shuffle(){
             firstList->previous = firsthalfTail; //set firsthalftail to be in firstList->previous
             firsthalfTail =firstList; //dummy is the firstlist
             firstList = firstList->next; //advance firstlist's next pointer
-            //firstList = firstList->previous; //
+            
 
             firsthalfTail->next = secondList; // set first number in secondList to firsthalftail->next
             firsthalfTail = secondList; // set number of secondlist to start of firsthalftail
-            // set the "non moving number's previous node to point to "
             secondList = secondList->next; //advance secondlist's next pointer
             //if((firstList->previous) && (firstList) !=NULL)
             if(firstList!=NULL){
@@ -345,47 +310,12 @@ doublyNode *doublyList::shuffle(){
                 break;
             }
             
-            
-            //secondList = secondList->previous;
-
-            //firstList = secondList->
-
-            //fix previous pointers
-
-            
-            // traverse to end of dummy.next with .next
-            // split dummy.next into firstList->previous
-            // split dummy.next into secondList->previous
-
-            // hmm, don't split
-            // traverse to the end of dummy.next
-            // at the last node, start populating it into .previous
-
-
-        //while((dummy.next)!=NULL){
-
-          //  reverseList(); //this goes to the end of dummy.
-           // dummy.previous = head;
-            // from the end, assign dummy->next as the previous?
-            //dummy.previous = tail;
-
-            
-
-        //}
-
-
-             
-            
-
-
-
-
         }
 
 
     }
 
-    return (dummy.next); //real result is here
+    return (dummy.next);
 
 
 
