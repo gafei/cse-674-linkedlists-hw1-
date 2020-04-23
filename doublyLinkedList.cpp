@@ -118,9 +118,6 @@ void doublyList::swapNodes(int a, int b){
     // start at the head
     while(*node!=NULL){
 
-        // as long as the *node is not empty..
-        // otherwise kick out of while loop
-
          //std::cout << "Data in node is: " << node->data << "\n";
          if((*node)->data == a ){
             
@@ -140,10 +137,6 @@ void doublyList::swapNodes(int a, int b){
 
     } 
     
-    // we need a found case and/or a not found case to continue onto to swap.
-
-    //if (a && b){ //true if both a and b are true, false otherwise (logical and)
-
         swap(*currentNodea, *currentNodeb); //swap actual data values
         //swap(((*currentNodea)->next), ((*currentNodeb)->next)); //swap next pointers.
         //swap(((*currentNodea)->previous), ((*currentNodeb)->previous));//swap previous pointers
@@ -155,31 +148,25 @@ void doublyList::swapNodes(int a, int b){
         if(((*currentNodea)->previous) && ((*currentNodeb)->previous)!=NULL){
             swap(((*currentNodea)->previous), ((*currentNodeb)->previous));//swap previous pointers
         }
-
-
-        
-
-        // nodes should be done swapping data/pointers now?
-        // fix the adjacent node's pointers?  
         // adjacent is the one to the right of the swapped node
         // fix only the prev pointer for now
         doublyNode **adjA =NULL;
         doublyNode **adjB=NULL;
 
-        adjA = &(*currentNodea)->next; //77? second number of the 
-        adjB = &(*currentNodeb)->next; //72?
+        adjA = &(*currentNodea)->next; 
+        adjB = &(*currentNodeb)->next; 
 
-        // actually, if adjA or adjB IS NULL, return.
+        // actually, if adjA or adjB IS NOT NULL, point back to the currentNode on previous adj
 
         if((*adjA)!=NULL){
             
-            (*adjA)->previous = (*currentNodea); //77.prev should be 71?
+            (*adjA)->previous = (*currentNodea); 
         }
         
         
         if((*adjB)!=NULL){
             
-            (*adjB)->previous = (*currentNodeb); //72.prev should be 76?
+            (*adjB)->previous = (*currentNodeb); 
 
         }
 
@@ -328,7 +315,7 @@ doublyNode *doublyList::shuffle(){
 
     }
 
-    return (dummy.next); //real result is here
+    return (dummy.next);
 
 
 

@@ -22,10 +22,6 @@ public:
     ~singleList(); //destructor
 
     void insertFirst(int data);
-    singleNode deleteFirst();
-    void insertLast(int data);
-
-
 
     void removeAllNodes();
     bool IsEmpty();
@@ -47,6 +43,6 @@ public:
 
 
 private:
-    singleNode *head, *tail, *firstList, *secondList; //access to head and tail in case we need them in this class
+    singleNode *head, *tail, *firstList, *secondList;
 
 };

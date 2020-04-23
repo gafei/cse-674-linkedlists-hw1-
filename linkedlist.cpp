@@ -26,30 +26,6 @@ void singleList::insertFirst(int data){
 
 }
 
-singleNode singleList::deleteFirst(){
-
-    singleNode *temp = head;
-    head = head->next;
-    return *temp;    
-
-}
-
-void singleList::insertLast(int data){
-
-    singleNode *currentNode = head; //point currentNode to head
-    while(currentNode->next !=NULL){
-
-        currentNode = currentNode->next; // this loops until currentNode->next is null
-    }
-
-    // create a newNode down here
-    singleNode *newNode = new singleNode();
-    newNode->data = data;
-    currentNode->next = newNode;
-
-}
-
-
 void singleList::removeAllNodes(){
 
     for(singleNode *node; !IsEmpty(); ){
@@ -140,9 +116,6 @@ void singleList::swapNodes(int a, int b)
     // start at the head
     while(*node!=NULL){
 
-        // as long as the *node is not empty..
-        // otherwise kick out of while loop
-
          //std::cout << "Data in node is: " << node->data << "\n";
          if((*node)->data == a ){
             
@@ -162,12 +135,9 @@ void singleList::swapNodes(int a, int b)
 
     } 
     
-    //if (a && b){ //true if both a and b are true, false otherwise (logical and)
 
         swap(*currentNodea, *currentNodeb); //swap actual data values
         swap(((*currentNodea)->next), ((*currentNodeb)->next)); //swap next pointers.
-        
-    //} 
     
 
 }
@@ -276,19 +246,6 @@ void singleList::reverseList(){
     singleNode **current = &head;
 
     while(*current!=NULL){
-        /****
-        if ((*current)->next ==NULL){
-            // don't assign the next pointer here
-            // since it points to NULL
-            // this means this is the tail 
-            (*current)->next = prev;
-            prev = *current;
-            *current = next;
-            head = prev;
-            
-            return;
-        }
-        ****/
 
         next = (*current)->next;
         (*current)->next = prev;
@@ -301,22 +258,6 @@ void singleList::reverseList(){
 }
 singleNode *singleList::shuffle(){
 
-/********************************
-        int remainderNodeData = getNodeData(remainderIndexNode).data; // pull out the data at the remainderindex
-        int nextNumberIndex = remainderIndexNode +1; //this is the index after the remainder number
-        int nextNumberData = getNodeData(nextNumberIndex).data; // data at reaminderindex +1
-       
-       for (int i = remainderIndexNode; remainderIndexNode<countList(); i++){
-           swapNodes(remainderNodeData, nextNumberData); // keep moving remainder number until the end
-           
-           remainderIndexNode++;
-           remainderNodeData = getNodeData(remainderIndexNode).data; // i is the index
-           
-           nextNumberIndex++;
-           nextNumberData = getNodeData(nextNumberIndex).data; //next number index is next number
-
-       }
-********************/
         // split the list in half prior to shuffling
         splitList();
         
@@ -360,8 +301,6 @@ void singleList::splitList(){
     int length = countList();
     int i;
     singleNode *current = head;
-   // singleNode *firstList = NULL;
-   // singleNode *secondList = NULL;
 
     if (length < 2){
 

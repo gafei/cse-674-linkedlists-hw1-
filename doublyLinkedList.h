@@ -43,6 +43,6 @@ public:
 
 
 private:
-    doublyNode *head, *tail, *firstList, *secondList;; //access to head and tail in case we need them in this class
+    doublyNode *head, *tail, *firstList, *secondList;
 
 };
