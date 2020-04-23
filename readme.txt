@@ -25,14 +25,14 @@ Doubly Linked List
 
 In the doubly linked list, we have a class called "doublyNode" which represents a node object within the doubly linked list. The "doublyNode" includes an int "data" variable and has a pointer reference called "next" which points to the next "doublyNode" object in the list and "previous" pointer reference that points to the previous "doublyNode" object in the list. 
 
-An additional class called "doublyList" which represents a series of "doublyNodes" linked together with the "next" and "previous" pointers. In this class, we define functions that allow us to maniupluate the doubly linked list.
+An additional class called "doublyList" which represents a series of "doublyNodes" linked together with the "next" and "previous" pointers. In this class, we define functions that allow us to manipulate the doubly linked list.
 
 
 ---------------------------------
 Team of Four - Singly Linked List
 ---------------------------------
 
-To display our numbers in the "team of four" order, we perform a "modulous 4" operation on an internal counter within the displayNodesByFours() function. 
+To display our numbers in the "team of four" order, we perform a "modulus 4" operation on an internal counter within the displayNodesByFours() function. 
 
 This allows us to properly display the nodes in the "team of four" format. 
 
@@ -49,7 +49,7 @@ At the conclusion of the selectionSortFours() function, the numbers are sorted a
 Team of Four - Doubly Linked List
 ---------------------------------
 
-In the doubly linked list, we reuse the same "modulous 4" operation on an internal counter within the displayNodesByFours() function. This allows us to properly display the nodes in the "team of four" format. 
+In the doubly linked list, we reuse the same "modulus 4" operation on an internal counter within the displayNodesByFours() function. This allows us to properly display the nodes in the "team of four" format. 
 
 In the doubly linked list, the team of four sorting operating also works by implementing a selection sort with parameters "start" and "end." "Start" and "end" define the range of numbers to sort by.
 
@@ -60,17 +60,22 @@ Within the selectionSortFours() function, we also call the getNodeData() functio
 At the conclusion of the selectionSortFours() function, the numbers are sorted ascending order. 
 
 
-------------------
-Reverse
-------------------
+-----------------------------
+Reverse - Singly Linked List
+-----------------------------
 
 In the singly linked list, we call the reverseList() function to reverse the contents of the linked list. The reverseList() function will start at the "head" of the linked list and traverse a down the linked list where a pointer called "next" stores the "current" node prior to traversing. As this pointer traverses, a pointer called "prev" is assigned to the "current->next" pointer. This pointer will point to the actual previous number. Then, we assign the current node as the previous node and the next node as the current node to move pointers. The "head" pointer is now assigned to whatever is defined in the "prev" pointer. This will list the contents of the linked list in reverse.
 
+
+-----------------------------
+Reverse - Doubly Linked List
+-----------------------------
+
 In the doubly linked list, we also call the reverseList() to reverse the contents of the linked list. The reverseList() function will start at the "head" of the doubly linked list and traverse down the doubly linked list where a pointer called "prev" will store the "current->previous" value. As the "head" pointer (called current) progresses down the doubly linked list, "current->next" is assigned to "current->previous." This "current->next" is then stored in the "prev" pointer and finally, the "current" node will point to "current-previous." This will swap both the next and previous pointers of as we traverse down the doubly linked list. This "head" pointer is now assigned to whatever is in the "prev->previous." This will list the contents of the doubly linked list in reverse. 
 
-------------------
-Shuffle
-------------------
+----------------------------
+Shuffle - Singly Linked List 
+----------------------------
 
 In the singly linked list, the shuffle algorithm is based on the below:
 https://web.stanford.edu/class/cs9/sample_probs/ListShuffling.pdf
@@ -79,13 +84,17 @@ The numbers in the singly linked list is first split into two seperate lists cal
 
 After the split, the actual shuffling of numbers happens with the shuffle() function. A dummy pointer node called "firsthalfTail" is used to keep track of the position in the "firstList." "firsthalfTail->next" becomes the first number in "firstList." After that, "firstList" will increment its "next" pointer to assign the first number in "secondList." This is where the shuffling happens. Then, the "secondList's" "next" pointer will increment to the next number. 
 
+----------------------------
+Shuffle - Doubly Linked List 
+----------------------------
+
 In the doubly linked list, the shuffle function is also based on the above reference. The doubly linked list is also split into two seperate lists called, "firstList" and "secondList" as well. Both firstList and secondList will contain the doubly linked list data split in half. If the number is odd, firstList will store the extra data node.
 
 After the split, the actual shuffling of numbers happens with the shuffle() function as well. A dummy pointer is again used, called "firsthalfTail" to keep track of the position in the "firstList." Including what was stated above in the singly linked list, the shuffle function must keep track of the previous nodes. Immediately after setting the first number in "firstList" to firsthalfTail->next", we set "firstList->previous" to firstHalfTail. This allows us to keep track of the "previous" pointer. For every node that isn't null, we also assign the "firstList-previous" pointer back the "firsthalfTail->previous" pointer. This allows us to maintain both the "next" and "previous" pointer properly.  
 
-------------------
-Number Generation
-------------------
+---------------------------
+Distinct Number Generation
+---------------------------
 
 To generate 100 distict numbers generation, I revised a solution proposed in this stackoverflow post:
 https://stackoverflow.com/questions/36922371/generate-different-random-numbers
